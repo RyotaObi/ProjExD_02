@@ -35,7 +35,7 @@ def main():
     kk_rct = kk_img.get_rect()
     kk_rct.center = 900, 400
     bb_img = pg.Surface((20,20))
-    bb_img.set_colorkey(20, 20)
+    bb_img.set_colorkey(0, 0)
     pg.draw.circle(bb_img, (255, 0, 0), (10, 10), 10)
 
     bb_rct = bb_img.get_rect()
@@ -49,6 +49,11 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: 
                 return
+
+        if kk_rct.colliderect(bb_rct):
+            print("Game Over")
+            return    
+        
         key_lst = pg.key.get_pressed()
         
         sum_mv =[0, 0]
