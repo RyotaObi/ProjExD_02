@@ -13,8 +13,6 @@ delta = { # 練習３：押下キーと移動量の辞書
 }
 
 
-
-
 def check_bound(rct: pg.Rect) -> tuple[bool, bool]:
     """
     オブジェクトが画面内or画面外を判定し。真理値タプルを返す関数
@@ -49,7 +47,6 @@ def main():
     vx, vy = +10, +10 # 練習２：爆弾の速度
 
 
-
     clock = pg.time.Clock()
     tmr = 0
     while True:
@@ -60,8 +57,6 @@ def main():
         if kk_rct.colliderect(bb_rct):
             kk_img = kk_img_8
             print("Game Over")
-            
-            
         
         key_lst = pg.key.get_pressed()
         
@@ -70,7 +65,6 @@ def main():
             if key_lst[k]: #kキーが押されたら
                 sum_mv[0] += tpl[0]
                 sum_mv[1] += tpl[1]
-
 
         screen.blit(bg_img, [0, 0])
         kk_rct.move_ip(sum_mv[0], sum_mv[1])
